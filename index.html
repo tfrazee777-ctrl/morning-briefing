@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Morning Briefing — Thursday, May 14, 2026</title>
+<meta name="description" content="A warm, scannable morning briefing — weather, pollen, news, markets, and a thought for the day." />
+<meta property="og:title" content="The Morning Briefing — May 14, 2026" />
+<meta property="og:description" content="Weather, pollen, news, markets, and a thought for the day." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #faf5ec;
+    --paper: #fffdf8;
+    --ink: #2a2418;
+    --muted: #8b7a5a;
+    --accent: #a8651f;
+    --accent-2: #6b8e4e;
+    --line: #e8dec9;
+    --soft: #f3ecd8;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse at top, #fff7e6 0%, transparent 60%),
+      var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Masthead */
+  .mast {
+    text-align: center;
+    padding: 30px 0 24px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .mast .eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .mast h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    margin: 12px 0 8px;
+    letter-spacing: -1.5px;
+    color: var(--ink);
+  }
+  .mast .dateline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .mast .ornament {
+    color: var(--accent);
+    font-size: 22px;
+    letter-spacing: 16px;
+    margin: 16px 0 4px;
+    user-select: none;
+  }
+
+  /* Sections */
+  section {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin: 22px 0;
+    box-shadow: 0 1px 0 rgba(168, 101, 31, 0.04), 0 4px 18px rgba(90, 66, 38, 0.05);
+  }
+  section.featured {
+    background: linear-gradient(180deg, #fff8ea 0%, var(--paper) 100%);
+  }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 14px;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+  }
+  section h3 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    margin: 18px 0 6px;
+    color: var(--ink);
+  }
+  section h4 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin: 22px 0 8px;
+  }
+  .lede {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+  .lede::first-letter {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 0.9;
+    float: left;
+    margin: 4px 8px 0 0;
+    color: var(--accent);
+  }
+
+  /* Stats grid */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .stat {
+    background: var(--soft);
+    padding: 14px 14px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+  }
+  .stat .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .stat .value {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--ink);
+    margin-top: 4px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 600;
+    margin-left: 8px;
+  }
+  .b-low      { background: #e3f0d8; color: #436b22; }
+  .b-moderate { background: #fff1c8; color: #8a6d0b; }
+  .b-high     { background: #ffd9b8; color: #a04b14; }
+  .b-veryhigh { background: #f7c1c1; color: #8a1f1f; }
+
+  .pollen-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .pollen-row:last-child { border-bottom: none; }
+  .pollen-row span:first-child { color: var(--ink); }
+
+  .note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .source {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* Cleaning */
+  section.cleaning {
+    border-left: 5px solid var(--accent-2);
+    background: linear-gradient(180deg, #f4f7ec 0%, var(--paper) 100%);
+  }
+  section.cleaning .kicker { color: var(--accent-2); }
+
+  /* Calendar */
+  ul.events { list-style: none; padding: 0; margin: 10px 0 0; }
+  ul.events li {
+    padding: 12px 14px;
+    border-left: 3px solid var(--accent);
+    background: var(--soft);
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  ul.events li .time {
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* News */
+  .news-item { margin: 0 0 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .news-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .news-item .title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .news-item .body { color: #4a3f2c; }
+  .news-item .src {
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* Markets term */
+  .term-box {
+    background: linear-gradient(180deg, #fbf3df 0%, var(--paper) 100%);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-top: 18px;
+  }
+  .term-box .kicker { color: var(--accent); }
+  .term-box h3 { margin-top: 4px; }
+  .term-box p { margin: 8px 0; }
+  .term-box strong { color: var(--accent); }
+
+  /* Soul */
+  section.soul { background: linear-gradient(180deg, #f8f1e0 0%, var(--paper) 100%); }
+  .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 10px 0 4px;
+    padding-left: 18px;
+    border-left: 3px solid var(--accent);
+  }
+  .attrib {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 18px;
+  }
+  .verse-box {
+    background: var(--soft);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .question {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--ink);
+    margin-top: 18px;
+    padding: 16px 20px;
+    background: var(--soft);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-2);
+  }
+
+  /* Footer */
+  footer.foot {
+    margin-top: 50px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  footer.foot .orn {
+    color: var(--accent);
+    letter-spacing: 14px;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .page { padding: 24px 16px 60px; }
+    section { padding: 22px 20px; border-radius: 10px; }
+    section h2 { font-size: 24px; }
+    .lede { font-size: 17px; }
+    .lede::first-letter { font-size: 48px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    section { box-shadow: none; border-color: #ccc; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="mast">
+    <div class="eyebrow">The Morning Briefing</div>
+    <h1>Good morning, Portland</h1>
+    <div class="ornament">&bull; &bull; &bull;</div>
+    <div class="dateline">Thursday, May 14, 2026 &mdash; Portland, Oregon</div>
+  </header>
+
+  <!-- WEATHER -->
+  <section class="featured">
+    <div class="kicker">Forecast</div>
+    <h2>Weather</h2>
+    <p class="lede">A cooler, cloudier Thursday after yesterday's sunshine — mostly overcast skies, a high near 62°F, and a gentle westerly breeze. Bring a light layer; you probably won't need sunglasses much, but the UV still climbs to "High" mid-afternoon when the sun pokes through.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="label">High</div><div class="value">62°F</div></div>
+      <div class="stat"><div class="label">Low</div><div class="value">48°F</div></div>
+      <div class="stat"><div class="label">Rain</div><div class="value">Slight</div></div>
+      <div class="stat"><div class="label">Wind</div><div class="value">WSW 5–10</div></div>
+      <div class="stat"><div class="label">Sunrise</div><div class="value">5:45 AM</div></div>
+      <div class="stat"><div class="label">Sunset</div><div class="value">8:36 PM</div></div>
+      <div class="stat"><div class="label">UV Peak</div><div class="value">6.5 · High</div></div>
+      <div class="stat"><div class="label">Sky</div><div class="value">Cloudy</div></div>
+    </div>
+
+    <p class="note">UV peaks "High" around 2–3 PM — even under cloud cover, broad-spectrum SPF 30+ is worth it if you'll be outside more than 20 minutes.</p>
+
+    <h4>Hourly Outlook <span style="text-transform: none; color: var(--muted); letter-spacing: 0; font-weight: 400;">(estimated curve from NWS high/low)</span></h4>
+    <table>
+      <thead><tr><th>Hour</th><th>Temp</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>6 AM</td><td>49°F</td><td>Cool, cloudy</td></tr>
+        <tr><td>9 AM</td><td>53°F</td><td>Overcast, warming slowly</td></tr>
+        <tr><td>12 PM</td><td>58°F</td><td>Cloudy</td></tr>
+        <tr><td>2 PM</td><td>61°F</td><td>UV peak — sunscreen even if cloudy</td></tr>
+        <tr><td>4 PM</td><td>62°F</td><td>Warmest of the day</td></tr>
+        <tr><td>7 PM</td><td>57°F</td><td>Cool, breezy</td></tr>
+        <tr><td>10 PM</td><td>51°F</td><td>Partly to mostly cloudy</td></tr>
+      </tbody>
+    </table>
+    <div class="source">Sources: National Weather Service Portland, Weather.com Gresham, Current UV Index Portland, WillyWeather.</div>
+  </section>
+
+  <!-- POLLEN -->
+  <section>
+    <div class="kicker">Allergies</div>
+    <h2>Pollen Today</h2>
+    <p class="lede">Tree pollen is still the dominant story — today's featured allergen is <strong>Birch (Betula)</strong>, one of the more reactive spring pollens. Cooler, calmer air today means less of it blowing around than yesterday.</p>
+
+    <div class="pollen-row"><span>Featured allergen <em style="color: var(--muted); font-size: 13px;">(Portland)</em></span><span><strong>Birch (Betula)</strong><span class="badge b-moderate">Moderate</span></span></div>
+    <div class="pollen-row"><span>Tree Pollen</span><span class="badge b-moderate">Moderate</span></div>
+    <div class="pollen-row"><span>Grass Pollen</span><span class="badge b-low">Low</span></div>
+    <div class="pollen-row"><span>Ragweed</span><span class="badge b-low">Low</span></div>
+    <div class="pollen-row"><span>Mold</span><span class="badge b-low">Low</span></div>
+    <div class="pollen-row"><span>Dust &amp; Dander</span><span class="badge b-low">Low</span></div>
+
+    <p class="note">If birch is one of yours: take the antihistamine before symptoms rather than chasing them.</p>
+    <div class="source">Sources: Pollen.com (97230), AccuWeather Allergy Outlook — Gresham (directional).</div>
+  </section>
+
+  <!-- CLEANING -->
+  <section class="cleaning">
+    <div class="kicker">One Small Task</div>
+    <h2>Today's Cleaning</h2>
+    <h3>Wipe light switches and door handles throughout the house</h3>
+    <p>Easy to overlook, surprisingly grimy. Grab a damp microfiber with a touch of all-purpose cleaner (or a disinfecting wipe) and walk through every room hitting switches, doorknobs, cabinet pulls, and the fridge handle. Takes less time than you expect; leaves the whole house feeling subtly fresher.</p>
+    <p class="note"><strong style="color: var(--accent-2);">Time:</strong> 15–25 minutes. <strong style="color: var(--accent-2);">Bonus (Spring):</strong> rinse one window screen while you're already up.</p>
+  </section>
+
+  <!-- NEWS -->
+  <section>
+    <div class="kicker">The Headlines</div>
+    <h2>News</h2>
+
+    <h4>Portland</h4>
+    <div class="news-item">
+      <div class="title">Last day to mail your ballot for the May 19 primary</div>
+      <div class="body">Multnomah County elections officials recommend mailing ballots no later than today to be postmarked in time. After that, use an official drop box.</div>
+      <span class="src">KATU / KGW</span>
+    </div>
+    <div class="news-item">
+      <div class="title">BLM proposes expanding timber harvest on 2.4 million Oregon acres</div>
+      <div class="body">A new Bureau of Land Management proposal would increase logging on federal land in Oregon, reigniting the long-running debate over wildfire risk, old-growth protection, and rural jobs.</div>
+      <span class="src">Oregon Public Broadcasting</span>
+    </div>
+
+    <h4>Gresham</h4>
+    <div class="news-item">
+      <div class="title">East County Library opens this Saturday, May 16</div>
+      <div class="body">The new 95,000-square-foot library — funded by the 2020 voter-approved Library Capital Bond — officially opens this Saturday with community events planned.</div>
+      <span class="src">The Outlook</span>
+    </div>
+    <div class="news-item">
+      <div class="title">Gresham Police searching for missing juvenile</div>
+      <div class="body">Gresham PD has issued an alert for a missing juvenile reported to have left a NE Portland residence overnight; family is asking for help.</div>
+      <span class="src">Gresham PD / Flashalert</span>
+    </div>
+
+    <h4>Oregon</h4>
+    <div class="news-item">
+      <div class="title">Statewide BLM campfire restrictions take effect today</div>
+      <div class="body">Fire restrictions go into effect today on all BLM-administered land across Oregon and Washington as the state heads into a higher-than-average fire season.</div>
+      <span class="src">Bend Bulletin / BLM</span>
+    </div>
+    <div class="news-item">
+      <div class="title">Measure 120: gas-tax referendum on the May 19 ballot</div>
+      <div class="body">The lone statewide measure on next Tuesday's ballot — a referendum on last fall's transportation funding package (HB 3991) — is drawing late attention as gas prices remain elevated.</div>
+      <span class="src">KGW Voter Guide</span>
+    </div>
+
+    <h4>United States</h4>
+    <div class="news-item">
+      <div class="title">Kevin Warsh confirmed as next Fed chair in 54-45 vote</div>
+      <div class="body">The Senate confirmed Kevin Warsh to succeed Jerome Powell in the most divisive Fed-chair vote on record, almost entirely along party lines. He takes over with inflation running hot.</div>
+      <span class="src">Reuters / Yahoo Finance</span>
+    </div>
+    <div class="news-item">
+      <div class="title">Senate war-powers vote on Iran narrowly fails</div>
+      <div class="body">The Senate voted 50-49 against advancing a Democratic-led measure to require congressional authorization for continued military action against Iran; three Republicans crossed over.</div>
+      <span class="src">Just Security / NPR</span>
+    </div>
+
+    <h4>World</h4>
+    <div class="news-item">
+      <div class="title">Trump–Xi summit opens in Beijing; Taiwan front and center</div>
+      <div class="body">President Trump and Chinese President Xi Jinping wrapped the first round of talks at their two-day Beijing summit; Xi told Trump that Taiwan is "the most important issue" between the two countries.</div>
+      <span class="src">CNN / Reuters</span>
+    </div>
+    <div class="news-item">
+      <div class="title">Russia hits Kyiv with mass drone and missile attack</div>
+      <div class="body">A large overnight Russian strike on Kyiv killed at least one person and injured 31 across six districts; rescue efforts continued through the morning.</div>
+      <span class="src">Al Jazeera</span>
+    </div>
+  </section>
+
+  <!-- MARKETS -->
+  <section>
+    <div class="kicker">Markets</div>
+    <h2>Wall Street</h2>
+    <p class="lede">Stocks closed Wednesday with the S&amp;P 500 (+0.5% to 7,444) and Nasdaq (+1.2% to 26,402) both notching fresh record highs on a tech rally, even as the Dow slipped slightly to 49,693. Today opens firmer: the Dow up about 0.8% and the S&amp;P/Nasdaq each up around 0.3% as the Trump–Xi summit and Warsh's Fed confirmation set the tone. Translation: market loves the tech story; inflation worries are real but momentum is winning.</p>
+    <div class="source">Sources: Yahoo Finance, CNBC, Trading Economics.</div>
+
+    <div class="term-box">
+      <div class="kicker">Today's Financial Term</div>
+      <h3>Earnings Per Share (EPS)</h3>
+      <p><strong>What it is —</strong> EPS is a company's profit divided by the number of outstanding shares. If a company earns $1 billion and has 500 million shares out, EPS = $2. It's a quick way to see how much profit "belongs" to each share you own.</p>
+      <p><strong>Quick example —</strong> When Apple reports a quarter, headlines like "Apple beats: EPS $2.40 vs. $2.30 expected" mean Apple made 10 cents more per share than Wall Street predicted — and that gap usually moves the stock.</p>
+      <p><strong>Why it matters —</strong> EPS is the building block of valuation. Combined with the share price, it gives you the P/E ratio (price-to-earnings), the most-quoted measure of whether a stock is "expensive" or "cheap." If you only learn one company number, learn EPS.</p>
+    </div>
+  </section>
+
+  <!-- SOUL -->
+  <section class="soul">
+    <div class="kicker">For The Soul</div>
+    <h2>A Word For The Day</h2>
+
+    <div class="quote">"Be faithful in small things because it is in them that your strength lies."</div>
+    <div class="attrib">— Mother Teresa</div>
+
+    <h4>C.S. Lewis</h4>
+    <div class="quote">"Integrity is doing the right thing, even when no one is watching."</div>
+    <div class="attrib">— C.S. Lewis (widely attributed; theme echoed throughout <em>Mere Christianity</em>)</div>
+
+    <h4>Scripture</h4>
+    <div class="verse-box">
+      <div class="quote" style="border-left: none; padding-left: 0;">"This is the day that the Lord has made; let us rejoice and be glad in it."</div>
+      <div class="attrib" style="padding-left: 0;">— Psalm 118:24 (ESV)</div>
+    </div>
+
+    <div class="question">A question to sit with today: <em>What is one small, faithful thing I can do today simply because it's good — not because anyone will see it?</em></div>
+  </section>
+
+  <footer class="foot">
+    <div class="orn">&bull; &bull; &bull;</div>
+    <div>The Morning Briefing &middot; Thursday, May 14, 2026</div>
+    <div style="margin-top: 4px;">Published from Portland, Oregon.</div>
+  </footer>
+
+</div>
+</body>
+</html>

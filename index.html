@@ -1,522 +1,209 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Morning Briefing — Thursday, May 14, 2026</title>
-<meta name="description" content="A warm, scannable morning briefing — weather, pollen, news, markets, and a thought for the day." />
-<meta property="og:title" content="The Morning Briefing — May 14, 2026" />
-<meta property="og:description" content="Weather, pollen, news, markets, and a thought for the day." />
-<meta property="og:type" content="website" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning, Theresa — Mon, May 18, 2026</title>
 <style>
-  :root {
-    color-scheme: light;
-    --bg: #faf5ec;
-    --paper: #fffdf8;
-    --ink: #2a2418;
-    --muted: #8b7a5a;
-    --accent: #a8651f;
-    --accent-2: #6b8e4e;
-    --line: #e8dec9;
-    --soft: #f3ecd8;
-    --serif: "Fraunces", Georgia, "Times New Roman", serif;
-    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
+  :root { color-scheme: light; }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
   body {
-    background:
-      radial-gradient(ellipse at top, #fff7e6 0%, transparent 60%),
-      var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    line-height: 1.65;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+    background: #fdfaf5;
+    color: #2a2a2a;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 24px 16px 64px;
   }
-  .page {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 40px 24px 80px;
-  }
-
-  /* Masthead */
-  .mast {
-    text-align: center;
-    padding: 30px 0 24px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 40px;
-  }
-  .mast .eyebrow {
-    font-family: var(--sans);
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .mast h1 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(40px, 6vw, 64px);
-    line-height: 1.05;
-    margin: 12px 0 8px;
-    letter-spacing: -1.5px;
-    color: var(--ink);
-  }
-  .mast .dateline {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 18px;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-  .mast .ornament {
-    color: var(--accent);
-    font-size: 22px;
-    letter-spacing: 16px;
-    margin: 16px 0 4px;
-    user-select: none;
-  }
-
-  /* Sections */
-  section {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 28px 30px;
-    margin: 22px 0;
-    box-shadow: 0 1px 0 rgba(168, 101, 31, 0.04), 0 4px 18px rgba(90, 66, 38, 0.05);
-  }
-  section.featured {
-    background: linear-gradient(180deg, #fff8ea 0%, var(--paper) 100%);
-  }
-  .kicker {
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-  section h2 {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 600;
-    margin: 0 0 14px;
-    color: var(--ink);
-    letter-spacing: -0.5px;
-  }
-  section h3 {
-    font-family: var(--serif);
-    font-size: 19px;
-    font-weight: 600;
-    margin: 18px 0 6px;
-    color: var(--ink);
-  }
-  section h4 {
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--accent);
-    margin: 22px 0 8px;
-  }
-  .lede {
-    font-family: var(--serif);
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--ink);
-    margin: 0 0 16px;
-  }
-  .lede::first-letter {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 56px;
-    line-height: 0.9;
-    float: left;
-    margin: 4px 8px 0 0;
-    color: var(--accent);
-  }
-
-  /* Stats grid */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    margin: 18px 0;
-  }
-  .stat {
-    background: var(--soft);
-    padding: 14px 14px;
-    border-radius: 10px;
-    border-left: 3px solid var(--accent);
-  }
-  .stat .label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--muted);
-    font-weight: 600;
-  }
-  .stat .value {
-    font-family: var(--serif);
-    font-size: 20px;
-    color: var(--ink);
-    margin-top: 4px;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-
-  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14.5px; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
-  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
-
-  .badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 999px;
-    font-size: 12.5px;
-    font-weight: 600;
-    margin-left: 8px;
-  }
-  .b-low      { background: #e3f0d8; color: #436b22; }
-  .b-moderate { background: #fff1c8; color: #8a6d0b; }
-  .b-high     { background: #ffd9b8; color: #a04b14; }
-  .b-veryhigh { background: #f7c1c1; color: #8a1f1f; }
-
-  .pollen-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--line);
-  }
-  .pollen-row:last-child { border-bottom: none; }
-  .pollen-row span:first-child { color: var(--ink); }
-
-  .note {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 15px;
-    color: var(--muted);
-    margin-top: 6px;
-  }
-  .source {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 14px;
-    padding-top: 10px;
-    border-top: 1px solid var(--line);
-  }
-
-  /* Cleaning */
-  section.cleaning {
-    border-left: 5px solid var(--accent-2);
-    background: linear-gradient(180deg, #f4f7ec 0%, var(--paper) 100%);
-  }
-  section.cleaning .kicker { color: var(--accent-2); }
-
-  /* Calendar */
-  ul.events { list-style: none; padding: 0; margin: 10px 0 0; }
-  ul.events li {
-    padding: 12px 14px;
-    border-left: 3px solid var(--accent);
-    background: var(--soft);
-    margin-bottom: 10px;
-    border-radius: 4px;
-    font-size: 15px;
-  }
-  ul.events li .time {
-    font-family: var(--serif);
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  /* News */
-  .news-item { margin: 0 0 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
-  .news-item:last-child { border-bottom: none; margin-bottom: 0; }
-  .news-item .title {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--ink);
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-  .news-item .body { color: #4a3f2c; }
-  .news-item .src {
-    color: var(--muted);
-    font-size: 13px;
-    font-style: italic;
-    margin-top: 4px;
-    display: block;
-  }
-
-  /* Markets term */
-  .term-box {
-    background: linear-gradient(180deg, #fbf3df 0%, var(--paper) 100%);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 18px 22px;
-    margin-top: 18px;
-  }
-  .term-box .kicker { color: var(--accent); }
-  .term-box h3 { margin-top: 4px; }
-  .term-box p { margin: 8px 0; }
-  .term-box strong { color: var(--accent); }
-
-  /* Soul */
-  section.soul { background: linear-gradient(180deg, #f8f1e0 0%, var(--paper) 100%); }
-  .quote {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 19px;
-    line-height: 1.5;
-    color: var(--ink);
-    margin: 10px 0 4px;
-    padding-left: 18px;
-    border-left: 3px solid var(--accent);
-  }
-  .attrib {
-    font-size: 14px;
-    color: var(--muted);
-    padding-left: 18px;
-  }
-  .verse-box {
-    background: var(--soft);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin: 12px 0;
-  }
-  .question {
-    font-family: var(--serif);
-    font-size: 17px;
-    font-style: italic;
-    color: var(--ink);
-    margin-top: 18px;
-    padding: 16px 20px;
-    background: var(--soft);
-    border-radius: 8px;
-    border-left: 4px solid var(--accent-2);
-  }
-
-  /* Footer */
-  footer.foot {
-    margin-top: 50px;
-    padding-top: 24px;
-    border-top: 1px solid var(--line);
-    text-align: center;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  footer.foot .orn {
-    color: var(--accent);
-    letter-spacing: 14px;
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .page { padding: 24px 16px 60px; }
-    section { padding: 22px 20px; border-radius: 10px; }
-    section h2 { font-size: 24px; }
-    .lede { font-size: 17px; }
-    .lede::first-letter { font-size: 48px; }
-  }
-
-  /* Print */
-  @media print {
-    body { background: white; }
-    section { box-shadow: none; border-color: #ccc; page-break-inside: avoid; }
-  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { border-bottom: 2px solid #e8dec8; padding-bottom: 16px; margin-bottom: 24px; }
+  h1 { font-size: 28px; margin: 0 0 4px; color: #2a2a2a; }
+  .date { color: #8b6f47; font-size: 15px; letter-spacing: 0.3px; }
+  section { background: #fff; border: 1px solid #ece1cb; border-radius: 12px; padding: 18px 20px; margin-bottom: 18px; box-shadow: 0 1px 2px rgba(120, 95, 60, 0.04); }
+  h2 { font-size: 19px; margin: 0 0 12px; color: #8b6f47; letter-spacing: 0.3px; }
+  h3 { font-size: 15px; margin: 14px 0 6px; color: #5d4a32; }
+  p { margin: 6px 0; }
+  .summary { font-size: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 10px; }
+  .stat { background: #faf3e3; border-radius: 8px; padding: 10px 12px; }
+  .stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #8b6f47; }
+  .stat .value { font-size: 15px; font-weight: 600; color: #2a2a2a; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+  th, td { padding: 6px 8px; text-align: left; border-bottom: 1px solid #f0e7d4; }
+  th { color: #8b6f47; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.3px; }
+  .tag.est { background: #f3e8d3; color: #7c5a2c; }
+  .tag.fresh { background: #d9ebd2; color: #3e5e34; }
+  .badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-right: 6px; margin-top: 4px; letter-spacing: 0.3px; }
+  .lvl-low { background: #d9ebd2; color: #3e5e34; }
+  .lvl-mod { background: #fbecc4; color: #8a6a18; }
+  .lvl-high { background: #f7d4bc; color: #8c421a; }
+  .lvl-vhigh { background: #f0bfbf; color: #7b2222; }
+  .uv-pill { display: inline-block; background: #f7d4bc; color: #8c421a; padding: 4px 10px; border-radius: 12px; font-weight: 600; font-size: 12px; }
+  .news-item { padding: 8px 0; border-bottom: 1px dashed #ece1cb; }
+  .news-item:last-child { border-bottom: none; }
+  .src { color: #8b6f47; font-style: italic; font-size: 13px; }
+  .cleaning { border-left: 4px solid #6b8e5a; background: #f0f5ea; padding-left: 16px; }
+  .term-box { background: #f7f1e2; border-radius: 10px; padding: 12px 14px; margin-top: 8px; }
+  .term-box h3 { margin-top: 0; color: #6b5025; }
+  .quote { font-style: italic; font-size: 15.5px; color: #3a3225; margin: 8px 0 2px; }
+  .attrib { color: #8b6f47; font-size: 13px; margin: 0 0 12px; }
+  .verse { background: #f5efe0; border-radius: 8px; padding: 10px 14px; margin-top: 8px; }
+  .ponder { background: #ece4d0; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-style: italic; color: #4a3e26; }
+  .cal-list { margin: 6px 0; padding: 0; list-style: none; }
+  .cal-list li { padding: 6px 8px; border-bottom: 1px dashed #ece1cb; font-size: 14.5px; }
+  .cal-list li:last-child { border-bottom: none; }
+  .cal-time { color: #8b6f47; font-weight: 600; margin-right: 8px; }
+  .markets { font-size: 15px; }
+  footer { text-align: center; color: #8b6f47; font-size: 12px; padding: 12px 0 0; }
+  .note { font-size: 13px; color: #6e5a3b; background: #f7f1e2; padding: 8px 12px; border-radius: 6px; margin-top: 10px; }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
 
-  <header class="mast">
-    <div class="eyebrow">The Morning Briefing</div>
-    <h1>Good morning, Portland</h1>
-    <div class="ornament">&bull; &bull; &bull;</div>
-    <div class="dateline">Thursday, May 14, 2026 &mdash; Portland, Oregon</div>
-  </header>
+<header>
+  <h1>Good morning, Theresa</h1>
+  <div class="date">Monday, May 18, 2026 — Portland / Gresham, OR</div>
+</header>
 
-  <!-- WEATHER -->
-  <section class="featured">
-    <div class="kicker">Forecast</div>
-    <h2>Weather</h2>
-    <p class="lede">A cooler, cloudier Thursday after yesterday's sunshine — mostly overcast skies, a high near 62°F, and a gentle westerly breeze. Bring a light layer; you probably won't need sunglasses much, but the UV still climbs to "High" mid-afternoon when the sun pokes through.</p>
+<!-- WEATHER -->
+<section>
+  <h2>Weather</h2>
+  <p class="summary">A mild, partly sunny spring Monday — comfortable layers in the morning, short sleeves by afternoon. Dry day expected before showers return midweek.</p>
+  <div class="grid">
+    <div class="stat"><div class="label">High</div><div class="value">~69°F · mid–late afternoon</div></div>
+    <div class="stat"><div class="label">Overnight Low</div><div class="value">~46°F · near dawn</div></div>
+    <div class="stat"><div class="label">Rain</div><div class="value">None expected today</div></div>
+    <div class="stat"><div class="label">Wind</div><div class="value">Light SSW, 5–10 mph</div></div>
+    <div class="stat"><div class="label">Sunrise</div><div class="value">5:01 AM</div></div>
+    <div class="stat"><div class="label">Sunset</div><div class="value">8:38 PM</div></div>
+    <div class="stat"><div class="label">UV Peak</div><div class="value"><span class="uv-pill">7 · High</span> · ~2 PM</div></div>
+    <div class="stat"><div class="label">Sky</div><div class="value">Partly sunny</div></div>
+  </div>
+  <p class="note"><strong>UV reminder:</strong> Index peaks at 7 (High) around 2 PM. Apply SPF 30+ before heading out at midday, and reapply if you'll be outside for more than an hour. A hat and sunglasses are a good idea between 11 AM and 4 PM.</p>
 
-    <div class="stats">
-      <div class="stat"><div class="label">High</div><div class="value">62°F</div></div>
-      <div class="stat"><div class="label">Low</div><div class="value">48°F</div></div>
-      <div class="stat"><div class="label">Rain</div><div class="value">Slight</div></div>
-      <div class="stat"><div class="label">Wind</div><div class="value">WSW 5–10</div></div>
-      <div class="stat"><div class="label">Sunrise</div><div class="value">5:45 AM</div></div>
-      <div class="stat"><div class="label">Sunset</div><div class="value">8:36 PM</div></div>
-      <div class="stat"><div class="label">UV Peak</div><div class="value">6.5 · High</div></div>
-      <div class="stat"><div class="label">Sky</div><div class="value">Cloudy</div></div>
-    </div>
+  <h3>Hour-by-hour <span class="tag est">ESTIMATED</span></h3>
+  <p style="font-size:13px;color:#6e5a3b;margin-top:0;">AccuWeather hourly didn't return fresh data this morning, so the curve below is estimated from the NWS high/low and UV peak. Use as directional guidance.</p>
+  <table>
+    <thead><tr><th>Time</th><th>Temp</th><th>Conditions</th><th>UV</th></tr></thead>
+    <tbody>
+      <tr><td>6 AM</td><td>48°F</td><td>Mostly clear</td><td>0 — Low</td></tr>
+      <tr><td>9 AM</td><td>55°F</td><td>Partly sunny</td><td>3 — Moderate</td></tr>
+      <tr><td>12 PM</td><td>63°F</td><td>Partly sunny</td><td>6 — High</td></tr>
+      <tr><td>2 PM</td><td>67°F</td><td>Partly sunny</td><td>7 — High (peak)</td></tr>
+      <tr><td>4 PM</td><td>69°F</td><td>Partly sunny</td><td>5 — Moderate</td></tr>
+      <tr><td>7 PM</td><td>62°F</td><td>Mostly clear</td><td>1 — Low</td></tr>
+      <tr><td>10 PM</td><td>52°F</td><td>Clear</td><td>0 — Low</td></tr>
+    </tbody>
+  </table>
+  <p class="src" style="margin-top:8px;">Sources: NWS Portland (Gresham point forecast), Portland UV monitor (currentuvindex.com), timeanddate.com.</p>
+</section>
 
-    <p class="note">UV peaks "High" around 2–3 PM — even under cloud cover, broad-spectrum SPF 30+ is worth it if you'll be outside more than 20 minutes.</p>
+<!-- POLLEN -->
+<section>
+  <h2>Pollen &amp; Allergens</h2>
+  <p class="summary">Tree pollen is still the headline allergen this week. <strong>Birch (Betula)</strong> is the dominant genus for the Portland area today.</p>
+  <div>
+    <span class="badge lvl-high">Tree · High</span>
+    <span class="badge lvl-mod">Grass · Moderate</span>
+    <span class="badge lvl-low">Weed · Low</span>
+    <span class="badge lvl-mod">Mold · Moderate</span>
+  </div>
+  <p class="note">Tree pollen has stepped down from "very high" yesterday to "high" today, and grass is now moderate — a little easier on sensitive sinuses, but still worth a morning antihistamine if you typically react. Peak pollen tends to land early morning and late afternoon; a quick rinse and a change of shirt after the gym this evening will help.</p>
+  <p class="src">Sources: Pollen.com (97230), Weather Channel allergy forecast.</p>
+</section>
 
-    <h4>Hourly Outlook <span style="text-transform: none; color: var(--muted); letter-spacing: 0; font-weight: 400;">(estimated curve from NWS high/low)</span></h4>
-    <table>
-      <thead><tr><th>Hour</th><th>Temp</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td>6 AM</td><td>49°F</td><td>Cool, cloudy</td></tr>
-        <tr><td>9 AM</td><td>53°F</td><td>Overcast, warming slowly</td></tr>
-        <tr><td>12 PM</td><td>58°F</td><td>Cloudy</td></tr>
-        <tr><td>2 PM</td><td>61°F</td><td>UV peak — sunscreen even if cloudy</td></tr>
-        <tr><td>4 PM</td><td>62°F</td><td>Warmest of the day</td></tr>
-        <tr><td>7 PM</td><td>57°F</td><td>Cool, breezy</td></tr>
-        <tr><td>10 PM</td><td>51°F</td><td>Partly to mostly cloudy</td></tr>
-      </tbody>
-    </table>
-    <div class="source">Sources: National Weather Service Portland, Weather.com Gresham, Current UV Index Portland, WillyWeather.</div>
-  </section>
+<!-- CLEANING TASK -->
+<section class="cleaning">
+  <h2>Today's Cleaning Task</h2>
+  <h3 style="margin-top:4px;">Vacuum and wipe down the car interior</h3>
+  <p>Mats out and shaken, vacuum the seats and floor, then a damp microfiber over the dash, console, steering wheel, and door panels. With pollen this high, a clean cabin really does help — your car has been collecting birch dust through the vents all week.</p>
+  <p><strong>Time:</strong> ~25–35 minutes. <em>Bonus if you have time (spring):</em> wipe down the patio furniture or rinse the window screens — both pay off the next time you open the back door.</p>
+</section>
 
-  <!-- POLLEN -->
-  <section>
-    <div class="kicker">Allergies</div>
-    <h2>Pollen Today</h2>
-    <p class="lede">Tree pollen is still the dominant story — today's featured allergen is <strong>Birch (Betula)</strong>, one of the more reactive spring pollens. Cooler, calmer air today means less of it blowing around than yesterday.</p>
+<!-- HEADLINES -->
+<section>
+  <h2>Headlines</h2>
 
-    <div class="pollen-row"><span>Featured allergen <em style="color: var(--muted); font-size: 13px;">(Portland)</em></span><span><strong>Birch (Betula)</strong><span class="badge b-moderate">Moderate</span></span></div>
-    <div class="pollen-row"><span>Tree Pollen</span><span class="badge b-moderate">Moderate</span></div>
-    <div class="pollen-row"><span>Grass Pollen</span><span class="badge b-low">Low</span></div>
-    <div class="pollen-row"><span>Ragweed</span><span class="badge b-low">Low</span></div>
-    <div class="pollen-row"><span>Mold</span><span class="badge b-low">Low</span></div>
-    <div class="pollen-row"><span>Dust &amp; Dander</span><span class="badge b-low">Low</span></div>
+  <h3>Portland</h3>
+  <div class="news-item">
+    Portland City Council meets May 18–20 to vote on the FY 2026–27 budget, with water revenue bonds, Clean Energy Community Benefits Fund amendments, and rate adjustments for solid waste, transportation, and sewer/stormwater on the agenda. <span class="src">— Portland.gov</span>
+  </div>
+  <div class="news-item">
+    A Portland police officer is recovering after a suspect struck him in the face with a softball-sized rock during an arrest over the weekend; charges are pending. <span class="src">— KGW / KATU</span>
+  </div>
 
-    <p class="note">If birch is one of yours: take the antihistamine before symptoms rather than chasing them.</p>
-    <div class="source">Sources: Pollen.com (97230), AccuWeather Allergy Outlook — Gresham (directional).</div>
-  </section>
+  <h3>Gresham</h3>
+  <div class="news-item">
+    A 19-year-old has been arrested after allegedly pointing a handgun at another driver during a road-rage incident near SE Powell &amp; 182nd; officers recovered the gun with a 30-round magazine from the suspect's car. <span class="src">— KATU / KGW</span>
+  </div>
+  <div class="news-item">
+    The new East County Library wrapped its grand-opening weekend with family activities Saturday and Sunday; regular operating hours are now in effect. <span class="src">— The Outlook / Multnomah County Library</span>
+  </div>
 
-  <!-- CLEANING -->
-  <section class="cleaning">
-    <div class="kicker">One Small Task</div>
-    <h2>Today's Cleaning</h2>
-    <h3>Wipe light switches and door handles throughout the house</h3>
-    <p>Easy to overlook, surprisingly grimy. Grab a damp microfiber with a touch of all-purpose cleaner (or a disinfecting wipe) and walk through every room hitting switches, doorknobs, cabinet pulls, and the fridge handle. Takes less time than you expect; leaves the whole house feeling subtly fresher.</p>
-    <p class="note"><strong style="color: var(--accent-2);">Time:</strong> 15–25 minutes. <strong style="color: var(--accent-2);">Bonus (Spring):</strong> rinse one window screen while you're already up.</p>
-  </section>
+  <h3>Oregon</h3>
+  <div class="news-item">
+    Today is the last preferred mail-in day for Oregon's May 19 primary — Secretary of State Tobias Read is urging voters to use official drop boxes (open 8 AM–7 PM Monday and until 8 PM Tuesday) rather than the mail. <span class="src">— KATU / Oregon SoS</span>
+  </div>
+  <div class="news-item">
+    Measure 120, the lone statewide measure, is drawing attention as a referendum on last fall's HB 3991 transportation funding package. Polling shows the governor's race largely settled on the Democratic side, with the Republican primary still contested. <span class="src">— KGW</span>
+  </div>
 
-  <!-- NEWS -->
-  <section>
-    <div class="kicker">The Headlines</div>
-    <h2>News</h2>
+  <h3>United States</h3>
+  <div class="news-item">
+    Six Americans were exposed to a rare strain of Ebola while in the Democratic Republic of the Congo and are being monitored; CDC says public risk remains low. <span class="src">— CNN</span>
+  </div>
+  <div class="news-item">
+    The Long Island Rail Road remains shut down after late-night talks between the MTA and union leaders failed to end a strike affecting hundreds of thousands of NYC-area commuters. <span class="src">— CNN / NBC News</span>
+  </div>
 
-    <h4>Portland</h4>
-    <div class="news-item">
-      <div class="title">Last day to mail your ballot for the May 19 primary</div>
-      <div class="body">Multnomah County elections officials recommend mailing ballots no later than today to be postmarked in time. After that, use an official drop box.</div>
-      <span class="src">KATU / KGW</span>
-    </div>
-    <div class="news-item">
-      <div class="title">BLM proposes expanding timber harvest on 2.4 million Oregon acres</div>
-      <div class="body">A new Bureau of Land Management proposal would increase logging on federal land in Oregon, reigniting the long-running debate over wildfire risk, old-growth protection, and rural jobs.</div>
-      <span class="src">Oregon Public Broadcasting</span>
-    </div>
+  <h3>World</h3>
+  <div class="news-item">
+    One of Ukraine's largest drone strikes on Russia killed at least four people, including three near Moscow, and wounded a dozen more, local authorities said over the weekend. <span class="src">— NPR / Al Jazeera</span>
+  </div>
+  <div class="news-item">
+    Health officials in the DRC are racing to contain a new Ebola outbreak; the strain has no licensed vaccine and contact-tracing teams are deployed. <span class="src">— NPR / WHO</span>
+  </div>
+</section>
 
-    <h4>Gresham</h4>
-    <div class="news-item">
-      <div class="title">East County Library opens this Saturday, May 16</div>
-      <div class="body">The new 95,000-square-foot library — funded by the 2020 voter-approved Library Capital Bond — officially opens this Saturday with community events planned.</div>
-      <span class="src">The Outlook</span>
-    </div>
-    <div class="news-item">
-      <div class="title">Gresham Police searching for missing juvenile</div>
-      <div class="body">Gresham PD has issued an alert for a missing juvenile reported to have left a NE Portland residence overnight; family is asking for help.</div>
-      <span class="src">Gresham PD / Flashalert</span>
-    </div>
+<!-- MARKETS -->
+<section>
+  <h2>Markets</h2>
+  <p class="markets">Stocks pulled back Friday after a record-setting Thursday. The <strong>S&amp;P 500 fell 1.24%</strong> to 7,408.50, the <strong>Nasdaq dropped 1.54%</strong> to 26,225.14, and the <strong>Dow lost 1.07%</strong> (about 537 points) to close at 49,526.17. Tech took the brunt of the selling — Nvidia, AMD, Micron, and Intel all slipped 4–7% — as traders booked profits after a Trump–Xi summit that ended without a major breakthrough. Treasury yields ticked up. Futures are roughly flat as the week opens.</p>
+  <div class="term-box">
+    <h3>Today's Financial Term: Blue Chip</h3>
+    <p><strong>What it is:</strong> A "blue chip" is a large, well-established, financially solid company with a long track record of stable earnings and (usually) consistent dividend payments. The term comes from poker, where blue chips traditionally have the highest value.</p>
+    <p><strong>Quick example:</strong> Companies like Microsoft, Johnson &amp; Johnson, Coca-Cola, Procter &amp; Gamble, and JPMorgan Chase are textbook blue chips — they're huge, household names that have weathered multiple recessions and continued paying dividends.</p>
+    <p><strong>Why it matters:</strong> Blue chips are often the "ballast" of a long-term portfolio — they generally swing less violently than smaller growth stocks during downturns, which makes them a popular core holding for retirement accounts.</p>
+  </div>
+  <p class="src" style="margin-top:10px;">Sources: TheStreet, CNBC, Yahoo Finance (May 15 close).</p>
+</section>
 
-    <h4>Oregon</h4>
-    <div class="news-item">
-      <div class="title">Statewide BLM campfire restrictions take effect today</div>
-      <div class="body">Fire restrictions go into effect today on all BLM-administered land across Oregon and Washington as the state heads into a higher-than-average fire season.</div>
-      <span class="src">Bend Bulletin / BLM</span>
-    </div>
-    <div class="news-item">
-      <div class="title">Measure 120: gas-tax referendum on the May 19 ballot</div>
-      <div class="body">The lone statewide measure on next Tuesday's ballot — a referendum on last fall's transportation funding package (HB 3991) — is drawing late attention as gas prices remain elevated.</div>
-      <span class="src">KGW Voter Guide</span>
-    </div>
+<!-- FOR THE SOUL -->
+<section>
+  <h2>For the Soul</h2>
+  <p class="quote">"It may be that when we no longer know what to do, we have come to our real work, and that when we no longer know which way to go, we have begun our real journey."</p>
+  <p class="attrib">— Wendell Berry, <em>Standing by Words</em></p>
 
-    <h4>United States</h4>
-    <div class="news-item">
-      <div class="title">Kevin Warsh confirmed as next Fed chair in 54-45 vote</div>
-      <div class="body">The Senate confirmed Kevin Warsh to succeed Jerome Powell in the most divisive Fed-chair vote on record, almost entirely along party lines. He takes over with inflation running hot.</div>
-      <span class="src">Reuters / Yahoo Finance</span>
-    </div>
-    <div class="news-item">
-      <div class="title">Senate war-powers vote on Iran narrowly fails</div>
-      <div class="body">The Senate voted 50-49 against advancing a Democratic-led measure to require congressional authorization for continued military action against Iran; three Republicans crossed over.</div>
-      <span class="src">Just Security / NPR</span>
-    </div>
+  <h3>C.S. Lewis</h3>
+  <p class="quote">"There are far, far better things ahead than any we leave behind."</p>
+  <p class="attrib">— C.S. Lewis, letter to Mary Willis Shelburne, 1956 (collected in <em>Letters to an American Lady</em>)</p>
 
-    <h4>World</h4>
-    <div class="news-item">
-      <div class="title">Trump–Xi summit opens in Beijing; Taiwan front and center</div>
-      <div class="body">President Trump and Chinese President Xi Jinping wrapped the first round of talks at their two-day Beijing summit; Xi told Trump that Taiwan is "the most important issue" between the two countries.</div>
-      <span class="src">CNN / Reuters</span>
-    </div>
-    <div class="news-item">
-      <div class="title">Russia hits Kyiv with mass drone and missile attack</div>
-      <div class="body">A large overnight Russian strike on Kyiv killed at least one person and injured 31 across six districts; rescue efforts continued through the morning.</div>
-      <span class="src">Al Jazeera</span>
-    </div>
-  </section>
+  <div class="verse">
+    <p class="quote">"The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness."</p>
+    <p class="attrib">— Lamentations 3:22–23 (ESV)</p>
+  </div>
 
-  <!-- MARKETS -->
-  <section>
-    <div class="kicker">Markets</div>
-    <h2>Wall Street</h2>
-    <p class="lede">Stocks closed Wednesday with the S&amp;P 500 (+0.5% to 7,444) and Nasdaq (+1.2% to 26,402) both notching fresh record highs on a tech rally, even as the Dow slipped slightly to 49,693. Today opens firmer: the Dow up about 0.8% and the S&amp;P/Nasdaq each up around 0.3% as the Trump–Xi summit and Warsh's Fed confirmation set the tone. Translation: market loves the tech story; inflation worries are real but momentum is winning.</p>
-    <div class="source">Sources: Yahoo Finance, CNBC, Trading Economics.</div>
+  <div class="ponder">
+    Where in today — even a small corner of it — might I notice mercy that's brand new, not borrowed from yesterday?
+  </div>
+</section>
 
-    <div class="term-box">
-      <div class="kicker">Today's Financial Term</div>
-      <h3>Earnings Per Share (EPS)</h3>
-      <p><strong>What it is —</strong> EPS is a company's profit divided by the number of outstanding shares. If a company earns $1 billion and has 500 million shares out, EPS = $2. It's a quick way to see how much profit "belongs" to each share you own.</p>
-      <p><strong>Quick example —</strong> When Apple reports a quarter, headlines like "Apple beats: EPS $2.40 vs. $2.30 expected" mean Apple made 10 cents more per share than Wall Street predicted — and that gap usually moves the stock.</p>
-      <p><strong>Why it matters —</strong> EPS is the building block of valuation. Combined with the share price, it gives you the P/E ratio (price-to-earnings), the most-quoted measure of whether a stock is "expensive" or "cheap." If you only learn one company number, learn EPS.</p>
-    </div>
-  </section>
-
-  <!-- SOUL -->
-  <section class="soul">
-    <div class="kicker">For The Soul</div>
-    <h2>A Word For The Day</h2>
-
-    <div class="quote">"Be faithful in small things because it is in them that your strength lies."</div>
-    <div class="attrib">— Mother Teresa</div>
-
-    <h4>C.S. Lewis</h4>
-    <div class="quote">"Integrity is doing the right thing, even when no one is watching."</div>
-    <div class="attrib">— C.S. Lewis (widely attributed; theme echoed throughout <em>Mere Christianity</em>)</div>
-
-    <h4>Scripture</h4>
-    <div class="verse-box">
-      <div class="quote" style="border-left: none; padding-left: 0;">"This is the day that the Lord has made; let us rejoice and be glad in it."</div>
-      <div class="attrib" style="padding-left: 0;">— Psalm 118:24 (ESV)</div>
-    </div>
-
-    <div class="question">A question to sit with today: <em>What is one small, faithful thing I can do today simply because it's good — not because anyone will see it?</em></div>
-  </section>
-
-  <footer class="foot">
-    <div class="orn">&bull; &bull; &bull;</div>
-    <div>The Morning Briefing &middot; Thursday, May 14, 2026</div>
-    <div style="margin-top: 4px;">Published from Portland, Oregon.</div>
-  </footer>
+<footer>
+  Generated for Monday, May 18, 2026.
+</footer>
 
 </div>
 </body>
